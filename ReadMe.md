@@ -146,7 +146,7 @@ This loop component shows a catalog with a lot of services availables. The clien
         reclame_email()    
         print('We apologize for the inconvenience. Your complaint has been sent to the relevant department.')
         
-OBS: In this loop, if the customer presses '5', they will be able to make a complaint about the company. The complaint will be automatically forwarded to the relevant department of the company
+OBS: In this loop, if the customer presses '5', they will be able to make a complaint about the company. The complaint will be automatically forwarded to the relevant department of the company.
 
 ## Step 3: Calculation of the budget value
 
@@ -156,42 +156,43 @@ OBS: In this loop, if the customer presses '5', they will be able to make a comp
 
 ## Step 4: Showing the fiscal receipt
 
-CPF = str(input('CPF (Y/N)? '))      
-if CPF == 'Y' or CPF == 'y':
-    N = str(input('Enter your CPF: '))
-    wrd = 'FISCAL RECEIPT'
-    tracos(wrd)
-    print(f'\nClient CPF: {N}\n')
-    p = f"{'SERVICES'}".ljust(40)
-    v = f"{'PRICE'}"
-    wrd = f"{p} {v}"
-    tracos(wrd)
+CPF = str(input('CPF (Y/N)? '))  
 
-    for i in range(1,Cont):
-        produtos = f"{i}.{Produtos[i-1]}".ljust(40)
-        valor = f"R$ {Valor[i-1]:.2f}"
-        print(f"{produtos} {valor}")
+    if CPF == 'Y' or CPF == 'y':
+        N = str(input('Enter your CPF: '))
+        wrd = 'FISCAL RECEIPT'
+        tracos(wrd)
+        print(f'\nClient CPF: {N}\n')
+        p = f"{'SERVICES'}".ljust(40)
+        v = f"{'PRICE'}"
+        wrd = f"{p} {v}"
+        tracos(wrd)
     
-    print('\n')
-    t = f"{'TOTAL'}".ljust(40)
-    s = float(f"{Soma}")
-    wrd = f'{t} R$ {s:.2f}'
-    tracos(wrd)
-
-else:
-    wrd = 'FISCAL RECEIPT'
-    tracos(wrd)
-    p = f"{'SERVICES'}".ljust(40)
-    v = f"{'PRICE'}"
-    wrd = f"{p} {v}"
-    tracos(wrd)
-
-    for i in range(1,Cont):
-        produtos = f"{i}.{Produtos[i-1]}".ljust(40)
-        valor = f"R$ {Valor[i-1]:.2f}"
-        print(f"{produtos} {valor}")
+        for i in range(1,Cont):
+            produtos = f"{i}.{Produtos[i-1]}".ljust(40)
+            valor = f"R$ {Valor[i-1]:.2f}"
+            print(f"{produtos} {valor}")
+        
+        print('\n')
+        t = f"{'TOTAL'}".ljust(40)
+        s = float(f"{Soma}")
+        wrd = f'{t} R$ {s:.2f}'
+        tracos(wrd)
     
-    print(f'TOTAL  R$ {Soma:.2f}'.ljust(40))
+    else:
+        wrd = 'FISCAL RECEIPT'
+        tracos(wrd)
+        p = f"{'SERVICES'}".ljust(40)
+        v = f"{'PRICE'}"
+        wrd = f"{p} {v}"
+        tracos(wrd)
+    
+        for i in range(1,Cont):
+            produtos = f"{i}.{Produtos[i-1]}".ljust(40)
+            valor = f"R$ {Valor[i-1]:.2f}"
+            print(f"{produtos} {valor}")
+        
+        print(f'TOTAL  R$ {Soma:.2f}'.ljust(40))
 
 ## Step 5: Setting up the email for automatic sending
 
